@@ -9,6 +9,7 @@ using Serilog.Events;
 using FrameworkLogger = Microsoft.Extensions.Logging.ILogger;
 using System.Reflection;
 using Serilog.Parsing;
+using System.Collections.Generic;
 
 namespace Serilog.Extensions.Logging
 {
@@ -39,9 +40,9 @@ namespace Serilog.Extensions.Logging
             }
         }
 
-        public IDisposable BeginScopeImpl(object state)
+        public IDisposable BeginScope<TState>(TState state)
         {
-            return _provider.BeginScopeImpl(_name, state);
+            return _provider.BeginScopeImpl(_name, (object)state);
         }
 
         public bool IsEnabled(LogLevel logLevel)
@@ -49,7 +50,7 @@ namespace Serilog.Extensions.Logging
             return _logger.IsEnabled(ConvertLevel(logLevel));
         }
 
-        public void Log(LogLevel logLevel, int eventId, object state, Exception exception, Func<object, Exception, string> formatter)
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
             var level = ConvertLevel(logLevel);
             if (!_logger.IsEnabled(level))
@@ -59,12 +60,12 @@ namespace Serilog.Extensions.Logging
 
             var logger = _logger;
             string messageTemplate = null;
-            var format = formatter ?? ((s,_) => LogFormatter.Formatter(s, null));
+            var format = formatter;
 
-            var structure = state as ILogValues;
+            var structure = state as IReadOnlyList<KeyValuePair<string, object>>;
             if (structure != null)
             {
-                foreach (var property in structure.GetValues())
+                foreach (var property in structure)
                 {
                     if (property.Key == SerilogLoggerProvider.OriginalFormatPropertyName && property.Value is string)
                     {
@@ -101,7 +102,7 @@ namespace Serilog.Extensions.Logging
                 return;
             }
 
-            if (eventId != 0)
+            if (eventId.Id != 0)
             {
                 logger = logger.ForContext("EventId", eventId);
             }
@@ -123,7 +124,7 @@ namespace Serilog.Extensions.Logging
                     return LogEventLevel.Warning;
                 case LogLevel.Information:
                     return LogEventLevel.Information;
-                case LogLevel.Verbose:
+                case LogLevel.Debug:
                     return LogEventLevel.Debug;
                 default:
                     return LogEventLevel.Verbose;

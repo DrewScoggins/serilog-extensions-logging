@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Serilog.Core;
 using Serilog.Events;
 using FrameworkLogger = Microsoft.Extensions.Logging.ILogger;
+using System.Collections.Generic;
 
 namespace Serilog.Extensions.Logging
 {
@@ -42,10 +43,10 @@ namespace Serilog.Extensions.Logging
         {
             for (var scope = CurrentScope; scope != null; scope = scope.Parent)
             {
-                var stateStructure = scope.State as ILogValues;
+                var stateStructure = scope.State as IReadOnlyList<KeyValuePair<string, object>>;
                 if (stateStructure != null)
                 {
-                    foreach (var keyValue in stateStructure.GetValues())
+                    foreach (var keyValue in stateStructure)
                     {
                         if (keyValue.Key == OriginalFormatPropertyName && keyValue.Value is string)
                             continue;

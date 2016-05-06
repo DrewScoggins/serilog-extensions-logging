@@ -1,21 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A1893BD1-333D-4DFE-A0F0-DDBB2FE526E0}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Serilog.Extensions.Logging", "src\Serilog.Extensions.Logging\Serilog.Extensions.Logging.xproj", "{903CD13A-D54B-4CEC-A55F-E22AE3D93B3B}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Serilog.Extensions.Logging.Tests", "test\Serilog.Extensions.Logging.Tests\Serilog.Extensions.Logging.Tests.xproj", "{37EADF84-5E41-4224-A194-1E3299DCD0B8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E30F638E-BBBE-4AD1-93CE-48CC69CFEFE1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{F2407211-6043-439C-8E06-3641634332E7}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Sample", "samples\Sample\Sample.xproj", "{65357FBC-9BC4-466D-B621-1C3A19BC2A78}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MvcSample", "samples\MvcSample\MvcSample.xproj", "{9856F040-EF04-455A-9DC1-DC0BCDEE1DA6}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Serilog.Extensions.Logging_old", "src\Serilog.Extensions.Logging\Serilog.Extensions.Logging_old.xproj", "{903CD13A-D54B-4CEC-A55F-E22AE3D93B3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,26 +21,11 @@ Global
 		{903CD13A-D54B-4CEC-A55F-E22AE3D93B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{903CD13A-D54B-4CEC-A55F-E22AE3D93B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{903CD13A-D54B-4CEC-A55F-E22AE3D93B3B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37EADF84-5E41-4224-A194-1E3299DCD0B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37EADF84-5E41-4224-A194-1E3299DCD0B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37EADF84-5E41-4224-A194-1E3299DCD0B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37EADF84-5E41-4224-A194-1E3299DCD0B8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65357FBC-9BC4-466D-B621-1C3A19BC2A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65357FBC-9BC4-466D-B621-1C3A19BC2A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65357FBC-9BC4-466D-B621-1C3A19BC2A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65357FBC-9BC4-466D-B621-1C3A19BC2A78}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9856F040-EF04-455A-9DC1-DC0BCDEE1DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9856F040-EF04-455A-9DC1-DC0BCDEE1DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9856F040-EF04-455A-9DC1-DC0BCDEE1DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9856F040-EF04-455A-9DC1-DC0BCDEE1DA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{903CD13A-D54B-4CEC-A55F-E22AE3D93B3B} = {A1893BD1-333D-4DFE-A0F0-DDBB2FE526E0}
-		{37EADF84-5E41-4224-A194-1E3299DCD0B8} = {E30F638E-BBBE-4AD1-93CE-48CC69CFEFE1}
-		{65357FBC-9BC4-466D-B621-1C3A19BC2A78} = {F2407211-6043-439C-8E06-3641634332E7}
-		{9856F040-EF04-455A-9DC1-DC0BCDEE1DA6} = {F2407211-6043-439C-8E06-3641634332E7}
 	EndGlobalSection
 EndGlobal
